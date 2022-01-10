@@ -1,0 +1,12 @@
+docker run -d \
+-p 3000:3000 \
+--name=grafana-example \
+-e "GF_AUTH_JWT_ENABLED=true" \
+-e "GF_SECURITY_ADMIN_USER=carlos.admin@teleportdev.infra" \
+-e "GF_AUTH_JWT_HEADER_NAME=Teleport-Jwt-Assertion" \
+-e "GF_AUTH_JWT_EMAIL_CLAIM=sub" \
+-e "GF_AUTH_JWT_USERNAME_CLAIM=sub" \
+-e "GF_AUTH_JWT_JWK_SET_URL=https://organization.teleportdemo.com:443/.well-known/jwks.json" \
+-e "GF_SERVER_ROOT_URL=https://grafana.organization.teleportdemo.com" \
+grafana/grafana
+
